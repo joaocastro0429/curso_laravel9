@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\FlareClient\View;
@@ -29,7 +30,7 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function store(Request $resquest){
+    public function store(StoreUserRequest $resquest){
 
         $data=$resquest->only([
             'name',
@@ -37,7 +38,7 @@ class UserController extends Controller
             'password'
         ]);
 
-       $user= User::create($data);
+       User::create($data);
         
 
         return redirect()->route('users.index');
