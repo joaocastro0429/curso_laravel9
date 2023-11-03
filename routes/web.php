@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/user',[UserController::class,'index'])->name('user.index');
-Route::get('/user/{id}',[UserController::class,'show']);
+Route::get('/user',[UserController::class,'index'])->name('users.index');
+Route::get('/user/{id}',[UserController::class,'show'])->name('users.show');
 
 Route::get('/', function () {
     return view('welcome');
