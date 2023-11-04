@@ -13,7 +13,14 @@
         </li>
     </ul>
 
-    
+    <form action="{{route('users.destroy',$user->id)}}" method="post">
+        @method('DELETE')
+        @csrf
+        <button onclick="alert('Tem certeza que deseja excluir?')" type="submit" >
+                
+           Excluir
+        </button>
+    </form>
 @endsection
 
 

@@ -20,7 +20,7 @@
     @csrf
     <input type="text" placeholder="Infome  seu nome" name="name" value="{{old('name')}}">
     {{-- O oldmétodo extrairá os dados de entrada atualizados anteriormente da sessão : --}}
-    <input type="email" placeholder="Informe seu emai" name="email" value="{{old('email')}}">
+    <input type="email" placeholder="Informe seu email" name="email" value="{{old('email')}}">
     <input type="password" placeholder="senha" name="password"{{old('password')}}>
     <button type="submit">Enviar</button>
 

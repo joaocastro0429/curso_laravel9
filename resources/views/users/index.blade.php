@@ -10,14 +10,22 @@
     <a href="{{route('users.create')}}">{+}</a>
 </h1>
 
+<form action="{{route('users.index')}}" method="get">
+  <input type="text" name="seach" placeholder="Pesquisar">
+  <button type="submit">Pesquisar</button>
+</form>
+
 @foreach ($users as $user)
 
   <ul>
     <li>
-        {{$user->name}} -
+        {{$user->name}} 
         {{$user->email}} 
 
-        <a href="{{route('users.show',$user->id)}}">|Detalhes</a>  
+        |<a href="{{route('users.edit',$user->id)}}">|Editar</a> 
+
+        <a href="{{route('users.show',$user->id)}}">|Detalhes</a> 
+
      
     </li>
     

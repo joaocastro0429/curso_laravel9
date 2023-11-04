@@ -25,12 +25,13 @@ class StoreUserRequest extends FormRequest
             'name'=>'string|min:3|max:255',
             'email'=>[
                 'required',
-                'unique',
+                'email',
+                'unique:users',
             ],
             'password'=>[
                 'required',
                 'min:6',
-                'min:15'
+                'max:15'
             ]
 
         ];
