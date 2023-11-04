@@ -15,6 +15,8 @@ class UserController extends Controller
     public function index(Request $request){
         // exbindo o usuario do banco 
         $users=User::where('name','LIKE',"%{$request->name}%")->get();
+        
+        
 
         return View('users.index',compact('users'));
     }
