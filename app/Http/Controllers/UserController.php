@@ -23,6 +23,7 @@ class UserController extends Controller
 
     public function show($id){
         if(!$user=User::find($id)){
+            // valtar para rota anterior o index
             return redirect()->back();
         }
         
@@ -33,15 +34,20 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function store(StoreUserRequest $resquest){
+    public function store(StoreUserRequest $request){
 
-        $data=$resquest->only([
-            'name',
-            'email',
-            'password'
-        ]);
+        $data=$request->all();
+
+        if($request->image){
+            $data['image']=$request->image->store('users');
+           
+        }
+
+
+        // dd($request->image);
 
        User::create($data);
+       
         
 
         return redirect()->route('users.index');
