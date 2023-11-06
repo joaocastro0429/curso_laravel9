@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
+use App\Models\File;
 use App\Models\User;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\FuncCall;
@@ -12,6 +13,8 @@ use function Laravel\Prompts\password;
 
 class UserController extends Controller
 {
+
+    
     public function index(Request $request){
         // exbindo o usuario do banco 
         $users=User::where('name','LIKE',"%{$request->name}%")->get();
@@ -86,6 +89,11 @@ class UserController extends Controller
 
          $user->delete();
          return redirect()->route('users.index');
+    }
+
+    public function uploadFile(){
+        // um usuario tem muitos arquivos
+        $this->hasMany(File::class);
     }
 
     

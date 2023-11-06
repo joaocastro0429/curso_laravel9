@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\uploadFile;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/upload/{id}/upload',[uploadFile::class,'index'])->name('uploads.index');
+
 Route::delete('/users/{id}',[UserController::class,'destroy'])->name('users.destroy');
 Route::put('/users/{id}',[UserController::class,'update'])->name('users.update');
 Route::get('/users/{id}/edit',[UserController::class,'edit'])->name('users.edit');
